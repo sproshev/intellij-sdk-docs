@@ -118,15 +118,6 @@ All parameters in `com.jetbrains.python.psi.PyElementVisitor` marked `@NotNull`
 `com.jetbrains.python.sdk.PythonSdkUpdater.updateOrShowError(Sdk, SdkModificator, Project, Component)` method parameter `SdkModificator` removed
 : It was not processed carefully, it should be enough to pass editable sdk instead.
 
-`python.sdk.interpreter.field.is.empty` property removed from resource bundle `messages.PyBundle`
-: Use `python.sdk.field.is.empty` from `messages.PySdkBundle` instead.
-
-`base.interpreter` property removed from resource bundle `messages.PyBundle`
-: Use `python.venv.base.label` from `messages.PySdkBundle` instead.
-
-`interpreter` property removed from resource bundle `messages.PyBundle`
-: Use `python.interpreter.label` from `messages.PySdkBundle` instead.
-
 `com.jetbrains.python.psi.LanguageLevel.hasWithStatement()` method removed
 : It is `true` for all supported python versions.
 
@@ -257,6 +248,14 @@ Added Union Types Support
 
 `org.jetbrains.kotlin.idea.core.formatter.KotlinCodeStyleSettings.PACKAGES_TO_USE_STAR_IMPORTS` field type changed from `PackageEntryTable` to `KotlinPackageEntryTable`
 : This change was required to implement import layout order for Kotlin. `KotlinPackageEntryTable` can be used in the same manner as `PackageEntryTable`.
+
+### Changes in Python Plugin 2020.2
+
+`com.jetbrains.python.PythonDialectsTokenSetProvider.INSTANCE` field removed
+: `PythonDialectsTokenSetProvider` became an application service, use `PythonDialectsTokenSetProvider.getInstance()` instead.
+
+`com.jetbrains.python.psi.PyUtil.getLanguageLevelForVirtualFile(Project, VirtualFile)` method removed
+: Use `PythonLanguageLevelPusher.getLanguageLevelForVirtualFile(Project, VirtualFile)` instead.
 
 ## 2020.1
 
